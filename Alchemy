@@ -1,0 +1,32 @@
+// Define items snd recipes
+let recipes = {
+    "phoenix_ashes": {
+        "phoenix feather": 4,
+        "alternative_ingedients": [{
+            "coal": 1
+        },
+            {
+                "burnt wood": 2
+            }]
+    }
+     "basilisk_blood": { 
+         "basilisk talon": 3,
+         "water": 1 
+     }
+  "Dragon's_Breath": { 
+      "elemental leaf": 1, 
+      "oil": 1 
+  }
+
+     "health_potion": { 
+         "herb": 3, 
+         "water": 1 
+
+     }
+  "Imbued_Chimera_Claw": { 
+      "Chimera claw": 1,
+      "Dragon's_Breath": 1,
+      "oil": 1
+      }
+
+    }
