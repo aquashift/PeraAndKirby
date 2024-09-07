@@ -1,33 +1,92 @@
-// Define items snd recipes
+//  Define items snd recipes
+let inventory = {}
 let recipes = {
     "phoenix_ashes": {
         "phoenix feather": 4,
-        "alternative_ingedients": [
-{
+        "alternative_ingedients": [{
             "coal": 1
         },
-            {
-                "burnt wood": 2
-            }]
-    }
-     "basilisk_blood": { 
-         "basilisk talon": 3,
+        {
+            "burnt wood": 2
+                }]
+    },
+     "Basilisk_Blood": { 
+         "basilisk_talon": 3,
          "water": 1 
      },
   "Dragon's_Breath": { 
-      "elemental leaf": 1, 
+      "elemental_leaf": 1, 
       "oil": 1 
   },
 
-     "health_potion": { 
+     "Health_Potion": { 
          "herb": 3, 
          "water": 1 
 
      },
   "Imbued_Chimera_Claw": { 
-      "Chimera claw": 1,
+      "chimera_claw": 1,
       "Dragon's_Breath": 1,
       "oil": 1
       }
 
     }
+    
+    
+    //check player inventory for item (in general)
+   
+ function hasItem(item){
+     if(inventory[item]){
+         return true;
+     }
+     else return false;
+ }
+    // Function to add items to the player's inventory
+function addItem(item) {
+  if (hasItem(item)) {
+    inventory[item] += 1;
+  }
+  else {
+    inventory[item] = 1;
+  }
+}
+
+
+// function to remove items from inventory
+ function removeItems(item){
+     if(hasItem(item)){
+         inventory[item] -= item;
+         
+     }
+ }
+ 
+ // check if plsyer has required items in correct amounts for crafting 
+ function hasRecipeItems(requiredItems){
+     for(let item in requiredItems){
+         if(inventory[item]== 0 || inventory[item] < requiredItems[item]){
+             return false;
+             
+         }
+         else return true;
+     }
+ }
+ 
+ // Function to craft an item
+ 
+ function craftItem(craftableItem){
+     if(recipes[craftableItem] && 
+     hasRecipeItems(recipes[craftableItem])){
+         // if the recipe exists and tge player has the required recipe items
+         //Remove the used items from inventory
+         for(let material in 
+         recipes[craftableItem]){
+             removeItem(material)
+         }
+         
+         
+     }
+ }
+ 
+ 
+ 
+
