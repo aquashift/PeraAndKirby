@@ -1,5 +1,4 @@
-import re
-import # Define items and recipes
+# Define items and recipes
 inventory = {}
 recipes = {
     "phoenix_ashes": {
