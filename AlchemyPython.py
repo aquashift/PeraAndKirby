@@ -1,4 +1,4 @@
-Here is a Python implementation of your JavaScript code:
+
 
     inventory = {}
     recipes = {
