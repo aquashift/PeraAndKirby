@@ -1,3 +1,7 @@
+class Recipes:
+    def __init__(self, ingredients, crafted_item):
+        self.ingedients = recipes
+
 class Ingredient:
     def __init__(self, name, description):
         self.name = name
@@ -9,6 +13,7 @@ class Ingredient:
 
 # create an ingredient instance
 mandrake_root = Ingredient("Mandrake Root", "A rare and powerful herb with magical properties.")
+"phoenix feather" = Ingredient("phoenix feather", "Taken from the plumage of the Fire Bird.")
 
 # Define items and recipes
 inventory = {}
