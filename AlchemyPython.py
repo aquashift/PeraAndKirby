@@ -1,3 +1,15 @@
+class Ingredient:
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+        # add any other relevant attributes, like rarity or cost
+
+    def __str__(self):
+        return f"{self.name}: {self.description}"
+
+# create an ingredient instance
+mandrake_root = Ingredient("Mandrake Root", "A rare and powerful herb with magical properties.")
+
 # Define items and recipes
 inventory = {}
 recipes = {
@@ -58,4 +70,5 @@ def craft_item(craftable_item):
         for material, amount in recipes[craftable_item].items():
             if material != "alternative_ingredients":
                 remove_items(amount)
+
 
