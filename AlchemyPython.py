@@ -1,6 +1,7 @@
 class Recipes:
     def __init__(self, ingredients, crafted_item):
-        self.ingedients = recipes
+        self.ingredients = ingredients 
+        self.crafted_item = crafted_item
 
 class Ingredient:
     def __init__(self, name, description):
@@ -12,14 +13,21 @@ class Ingredient:
         return f"{self.name}: {self.description}"
 
 # create an ingredient instance
-mandrake_root = Ingredient("Mandrake Root", "A rare and powerful herb with magical properties.")
-"phoenix feather" = Ingredient("phoenix feather", "Taken from the plumage of the Fire Bird.")
+mandrake_root = Ingredient("mandrake root", "A rare and powerful herb with magical properties.")
+phoenix_feather = Ingredient("phoenix feather", "Taken from the plumage of the Fire Bird.")
+coal = Ingredient("coal", "Slow-burned wood - contains a lot of potential combustible energy.")
+burnt_wood = Ingredient("burnt wood", "An inferior product compared to coal.")
+basilisk_talon = Ingredient("basilisk talon", "A claw that was harvested from a perished Basilisk creature.")
+water = Ingredient("water", "The most basic composite of life.  Can be obtained anywhere there is life.")
+elemental_leaf = Ingredient("elemental leaf", "An otherwise ordinary leaf, imbued with a unique type of magic.")
+oil = Ingredient("oil", "Rendered fat from an animal, usually a mammal or bird.")
+red_herb = Ingredient("red herb", "Any herb that is pigmented dark red, and native to the high-elevation plateau in the North continent.")
 
 # Define items and recipes
 inventory = {}
 recipes = {
     "phoenix_ashes": {
-        "phoenix feather": 4,
+        "phoenix_feather": 4,
         "alternative_ingredients": [
             {"coal": 1},
             {"burnt wood": 2}
