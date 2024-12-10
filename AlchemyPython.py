@@ -55,7 +55,8 @@ dragons_breath = Ingredient("Dragon's Breath", "A common way to preserve the att
 dandelion_milk = Ingredient("dandelion milk", "Procured by macerating the thicker roots of the dandelion plant.")
 
 #create Recipe instances
-phoenix_ashes_recipe = Recipes("phoenix ashes", phoenix_ashes)
+phoenix_ashes_recipe = Recipes({"phoenix feather":4, "alterative ingredients":[{"coal":1}, {"burnt wood": 2}]},phoenix_ashes)
+# basilisk_blood_recipe = Recipes({
 # Define items and recipes
 inventory = {}
 recipes = {
