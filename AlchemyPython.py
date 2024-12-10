@@ -1,7 +1,6 @@
 
- class Recipes:
-   
-def __init__(self, ingredients, crafted_item):
+class Recipes:
+   def __init__(self, ingredients, crafted_item):
         self.ingredients = ingredients
         self.crafted_item = crafted_item
 
@@ -55,37 +54,18 @@ dragons_breath = Ingredient("Dragon's Breath", "A common way to preserve the att
 dandelion_milk = Ingredient("dandelion milk", "Procured by macerating the thicker roots of the dandelion plant.")
 
 #create Recipe instances
-phoenix_ashes_recipe = Recipes({"phoenix feather":4, "alterative ingredients":[{"coal":1}, {"burnt wood": 2}]},phoenix_ashes)
-# basilisk_blood_recipe = Recipes({
+phoenix_ashes_recipe = Recipes({"phoenix feather":4, "alterative ingredients":[{"coal":1}, {"burnt wood": 2}]},"phoenix ashes")
+basilisk_blood_recipe = Recipes({"basilisk talon":3,"water":1}, "basilisk blood")
+dragons_breath_recipe = Recipes({"elemental leaf":1,"oil":1}, "dragon's breath")
+health_potion_recipe = Recipes({"red herb":3,"water":1},"health potion")
+imbued_chimera_claw_recipe = Recipes({"chimera claw":1,"dragon's breath":1,"dandelion milk":1},"imbued chimera claw")
+
 # Define items and recipes
 inventory = {}
-recipes = {
-    "phoenix ashes": {
-        "phoenix feather": 4,
-        "alternative ingredients": [{
-            "coal": 1
-        }, {
-            "burnt wood": 2
-        }]
-    },
-    "Basilisk Blood": {
-        "basilisk talon": 3,
-        "water": 1
-    },
-    "Dragon's Breath": {
-        "elemental leaf": 1,
-        "oil": 1
-    },
-    "Health Potion": {
-        "red herb": 3,
-        "water": 1
-    },
-    "Imbued Chimera Claw": {
-        "chimera claw": 1,
-        "Dragon's Breath": 1,
-        "dandelion milk": 1
-    }
-}
+recipes = [
+phoenix_ashes_recipe, basilisk_blood_recipe, dragons_breath_recipe, health_potion_recipe, imbued_chimera_claw_recipe
+    
+      ]
 
 
 # Check player inventory for item (in general)
