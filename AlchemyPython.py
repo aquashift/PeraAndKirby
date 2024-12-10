@@ -1,9 +1,10 @@
 
-
-class Recipes:
-    def __init__(self, ingredients, crafted_item):
-        self.ingredients = ingredients 
+ class Recipes:
+   
+def __init__(self, ingredients, crafted_item):
+        self.ingredients = ingredients
         self.crafted_item = crafted_item
+
 
 class Ingredient:
 
@@ -16,6 +17,8 @@ class Ingredient:
         return f"{self.name}: {self.description}"
     def __repr__(self):
         return f"{self.name}"
+
+
 
 
 
@@ -51,6 +54,8 @@ chimera_claw = Ingredient("chimera claw", "Hardened keratin product obtained fro
 dragons_breath = Ingredient("Dragon's Breath", "A common way to preserve the attributes of an elemental leaf; by soaking it in oil immediately after imbued with elemental magic, an alchemist can expect a week more of potency versus no oil treatment.")
 dandelion_milk = Ingredient("dandelion milk", "Procured by macerating the thicker roots of the dandelion plant.")
 
+#create Recipe instances
+phoenix_ashes_recipe = Recipes("phoenix ashes", phoenix_ashes)
 # Define items and recipes
 inventory = {}
 recipes = {
@@ -70,7 +75,7 @@ recipes = {
         "elemental leaf": 1,
         "oil": 1
     },
-    "Health_Potion": {
+    "Health Potion": {
         "red herb": 3,
         "water": 1
     },
