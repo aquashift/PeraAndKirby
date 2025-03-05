@@ -1,92 +1,40 @@
-//  Define items snd recipes
-let inventory = {}
-let recipes = {
-    "phoenix_ashes": {
-        "phoenix feather": 4,
-        "alternative_ingedients": [{
-            "coal": 1
-        },
-        {
-            "burnt wood": 2
-                }]
-    },
-     "Basilisk_Blood": { 
-         "basilisk_talon": 3,
-         "water": 1 
-     },
-  "Dragon's_Breath": { 
-      "elemental_leaf": 1, 
-      "oil": 1 
-  },
+import random
 
-     "Health_Potion": { 
-         "herb": 3, 
-         "water": 1 
+def craft_item(input_text, available_materials, craftable_items, item_recipes):
+    """Crafts an item based on player input."""
 
-     },
-  "Imbued_Chimera_Claw": { 
-      "chimera_claw": 1,
-      "Dragon's_Breath": 1,
-      "oil": 1
-      }
+    parts = input_text.lower().split() #Convert the input to lowercase, and then split it into a list of words.
+    if len(parts) < 2:
+        return "Invalid crafting command. Use /craft <material1> <material2> ... <item>."
 
-    }
-    
-    
-    //check player inventory for item (in general)
-   
- function hasItem(item){
-     if(inventory[item]){
-         return true;
-     }
-     else return false;
- }
-    // Function to add items to the player's inventory
-function addItem(item) {
-  if (hasItem(item)) {
-    inventory[item] += 1;
-  }
-  else {
-    inventory[item] = 1;
-  }
+    requested_item = parts[-1]
+    used_materials = parts[1:-1]
+
+    if requested_item not in craftable_items:
+        return f"Unknown item: {requested_item}."
+
+    recipe = item_recipes.get(requested_item)
+    if not recipe:
+        return f"No recipe found for {requested_item}."
+
+    recipe_materials = recipe["materials"]
+
+    # Check if player has the required materials
+    if not all(material in used_materials for material in recipe_materials):
+        return "You don't have the required materials."
+
+    # Simulate material depletion (optional, update context here in a full implementation)
+    #context_update = f"You used {', '.join(recipe_materials)} to craft {requested_item}."
+
+    # Crafting success message
+    output = f"You successfully crafted a {requested_item}!"
+    return output
+
+# Example data (customize these!)
+available_materials = ["wood", "stone", "iron", "leather", "cloth"]
+craftable_items = ["sword", "axe", "armor"]
+item_recipes = {
+    "sword": {"materials": ["wood", "iron"]},
+    "axe": {"materials": ["wood", "stone"]},
+    "armor": {"materials": ["leather", "cloth"]}
 }
-
-
-// function to remove items from inventory
- function removeItems(item){
-     if(hasItem(item)){
-         inventory[item] -= item;
-         
-     }
- }
- 
- // check if plsyer has required items in correct amounts for crafting 
- function hasRecipeItems(requiredItems){
-     for(let item in requiredItems){
-         if(inventory[item]== 0 || inventory[item] < requiredItems[item]){
-             return false;
-             
-         }
-         else return true;
-     }
- }
- 
- // Function to craft an item
- 
- function craftItem(craftableItem){
-     if(recipes[craftableItem] && 
-     hasRecipeItems(recipes[craftableItem])){
-         // if the recipe exists and tge player has the required recipe items
-         //Remove the used items from inventory
-         for(let material in 
-         recipes[craftableItem]){
-             removeItem(material)
-         }
-         
-         
-     }
- }
- 
- 
- 
-
