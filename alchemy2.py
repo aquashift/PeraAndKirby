@@ -5,15 +5,17 @@ def craft_item(input_text): # example modification to adjust to AIDungeon input
 
     parts = input_text.lower().split() #Convert the input to lowercase, and then split it into a list of words.
     if len(parts) < 2 || len(parts) > 2:  #if the player input is not two parts (the item to craft and a number)
-        return "Invalid crafting command. Use /craft <craftItem> <amountToCraft>"
+        return "Invalid crafting command. Use /craft <craftItem> <material> <material2> ...  <amountToCraft>"
 
-    requested_item = parts[-1]
-    number_crafts = parts[1] # Milly what is the correct syntax here to get the second inputted numeric?
+    number_crafts = parts[-1]
+    requested_item = parts[0:-1]
+    crafted_item = parts[1]
+    # Milly what is the correct syntax here to get the second inputted numeric?
 
-    if requested_item not in craftable_items:
+    if requested_item not in recipes:
         return f"Unknown item: {requested_item}."
 
-    recipe = item_recipes.get(requested_item)
+    recipe = recipes.get(requested_item)
     if not recipe:
         return f"No recipe found for {requested_item}."
 
