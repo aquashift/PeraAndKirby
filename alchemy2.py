@@ -1,14 +1,14 @@
 import random
 
-def craft_item(input_text, available_materials, craftable_items, item_recipes):
-    """Crafts an item based on player input."""
+def craft_item(input_text): # example modification to adjust to AIDungeon input 
+    
 
     parts = input_text.lower().split() #Convert the input to lowercase, and then split it into a list of words.
-    if len(parts) < 2:
-        return "Invalid crafting command. Use /craft <material1> <material2> ... <item>."
+    if len(parts) < 2 || len(parts) > 2:  #if the player input is not two parts (the item to craft and a number)
+        return "Invalid crafting command. Use /craft <craftItem> <amountToCraft>"
 
     requested_item = parts[-1]
-    used_materials = parts[1:-1]
+    number_crafts = parts[1] # Milly what is the correct syntax here to get the second inputted numeric?
 
     if requested_item not in craftable_items:
         return f"Unknown item: {requested_item}."
