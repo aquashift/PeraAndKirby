@@ -1,0 +1,60 @@
+# Input: Define Ingredients and Recipes
+class Ingredient:
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
+    def __str__(self):
+        return f"{self.name}: {self.description}"
+
+mandrake_root = Ingredient("mandrake root", "A rare and powerful herb with magical properties.")
+coal = Ingredient("coal", "Slow-burned wood - contains a lot of potential combustible energy.")
+burnt_wood = Ingredient("burnt wood", "An inferior product compared to coal.")
+water = Ingredient("water", "The most basic composite of life.")
+oil = Ingredient("oil", "Rendered fat from an animal.")
+dragons_breath = Ingredient("Dragon's Breath", "A common way.")
+
+# Context: Hold player inventory and recipes
+inventory = {}
+recipes = {
+    "dragons_breath": {"elemental leaf": 1, "oil": 1},
+    "health potion": {"red herb": 3, "water": 1}
+}
+
+def has_item(item):
+    return item in inventory
+
+def add_item(item):
+    if has_item(item):
+        inventory[item] += 1
+    else:
+        inventory[item] = 1
+
+def remove_items(item, amount):
+    if has_item(item):
+        inventory[item] -= amount
+
+def has_recipe_items(required_items):
+    for item, amount in required_items.items():
+        if item not in inventory or inventory[item] < amount:
+            return False
+    return True
+
+# Crafting function as output
+def craft_item(craftable_item):
+    if craftable_item in recipes and has_recipe_items(recipes[craftable_item]):
+        for material, amount in recipes[craftable_item].items():
+            remove_items(material, amount)
+        return f"{craftable_item} crafted successfully!"  # Output response
+    return f"Unable to craft {craftable_item}. Check your inventory."
+
+
+
+Key Changes:
+Removed classes that were unnecessary for crafting items in this context.
+Organized recipes as a dictionary to easily access required materials.
+Updated remove_items to correctly take an amount to remove based on the recipe.
+Added output messages to inform users of crafting results.
+Usage in AIDungeon:
+You can add items to the inventory using add_item("mandrake_root").
+You can try to craft an item with craft_item("dragons_breath").
